@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.0",
-	"appid": "wx207ad91319bf89cc",
-	"projectname": "chishenmeo",
+	"appid": "",
+	"projectname": "chishenme",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
