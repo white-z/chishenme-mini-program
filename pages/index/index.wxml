@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="wrapper">
+      <!-- <view>中午吃什么?</view> -->
+      <view class="random">{{random}}</view>
+      <view><button class="btn" bindtap='getFood'>{{status}}</button></view>
+    </view>
+</view>
