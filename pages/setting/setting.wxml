@@ -1,0 +1,26 @@
+<view class="container">
+    <view class="wrap">
+        <view class="bar">
+            <view>
+                <text bindtap="deleteList" wx:if="{{!totalDeleted&&hasSelect}}">删除</text>
+            </view>
+            <view>
+                <text bindtap="selectAll" style="margin-right:34rpx" wx:if="{{!totalDeleted}}">{{isSelectAll?'取消':'全选'}}</text>
+                <text bindtap="addWrapToggle">{{addWrapShow?'关闭':'添加'}}</text>
+            </view>
+        </view>
+        <view class="add-wrap {{addWrapShow?'show':''}}">
+            <view class="add-group">
+                <input bindinput="addName" placeholder="输入您要添加的名称" value="{{addName}}"></input>
+                <button bindtap="confirmAdd" class="btn-add">确认</button>
+            </view>
+        </view>
+        <view class="list">
+            <view class="group-list">
+                <view bindtap="select" class="item {{item.isSelect?'active':''}}" data-key="{{index}}" wx:for="{{fullList}}" wx:key="{{index}}">
+                    <view>{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

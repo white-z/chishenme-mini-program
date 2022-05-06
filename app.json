@@ -1,10 +1,11 @@
 {
-  "pages":[
-    "pages/index/index"
-  ],
-  "window":{
-    "navigationBarTextStyle":"black",
-    "navigationStyle": "custom",
-    "enablePullDownRefresh": false
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/setting/setting"
+    ],
+    "window": {
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+    }
 }

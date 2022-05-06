@@ -1,8 +1,12 @@
-<!--index.wxml-->
 <view class="container">
     <view class="wrapper">
-      <!-- <view>中午吃什么?</view> -->
-      <view class="random">{{random}}</view>
-      <view><button class="btn" bindtap='getFood'>{{status}}</button></view>
+        <view class="random">{{selected}}</view>
+        <view>
+            <button bindtap="getSelected" class="btn">{{status}}</button>
+        </view>
+    </view>
+    <navigator bindtap="randomEnd" class="bar" openType="navigate" url="/pages/setting/setting">自定义</navigator>
+    <view class="fadeList">
+        <view class="temp" style="{{item.style}}" wx:for="{{fadeList}}" wx:key="{{index}}">{{item.name}}</view>
     </view>
 </view>

@@ -1,46 +1,65 @@
-//index.js
-//获取应用实例
-const app = getApp()
+var t = getApp();
 
 Page({
-  data: {
-    status: '随缘一个',
-    random: '不知道吃什么?',
-    foodList: ['炒面', '馄饨', '拉面', '烩面', '炒年糕', '炸酱面', '炒面', '重庆小面', '米线', '酸辣粉', '土豆粉', '螺狮粉', '凉皮儿', '麻辣烫', '肉夹馍', '羊肉汤', '炒饭', '盖浇饭', '卤肉饭', '烤肉饭', '黄焖鸡米饭', '驴肉火烧', '川菜', '麻辣香锅', '火锅', '酸菜鱼', '烤串', '披萨', '烤鸭', '汉堡', '炸鸡', '寿司', '蟹黄包', '煎饼果子', '生煎', '炒年糕']
-  },
-  onLoad: function() {
-
-  },
-  getFood: function(){
-    const that = this 
-    if(!that.data.begin) {
-      that.randomBegin()
-    }else {
-      that.randomEnd()
-    }
-  },
-  randomBegin: function () {
-    if (this.data.begin) {
-      return
-    }
-    const length = this.data.foodList.length - 1 
-    this.setData({
-      begin: true,
-      status: '停止',
-      randomFood: setInterval(() => {
+    data: {
+        status: "随缘一个",
+        selected: "不知道吃什么?",
+        fadeList: []
+    },
+    onLoad: function() {},
+    onShow: function() {
         this.setData({
-          random: this.data.foodList[Math.ceil(Math.random() * length)],
-        })
-      }, 80)
-    })
-  },
-  randomEnd: function () {
-    if (this.data.randomFood) {
-      clearInterval(this.data.randomFood)
-      this.setData({
-        begin: false,
-        status: '不行，换一个'
-      })
+            fullList: t.globalData.fullList
+        });
+    },
+    onHide: function() {
+        this.randomEnd(function() {
+            that.setData({
+                begin: !1,
+                status: "不行，换一个",
+                fadeList: []
+            });
+        });
+    },
+    getSelected: function() {
+        var t = this;
+        t.data.begin ? t.randomEnd(function() {
+            t.setData({
+                begin: !1,
+                status: "不行，换一个",
+                fadeList: []
+            });
+        }) : t.randomBegin(function() {
+            t.setData({
+                begin: !0,
+                status: "停止"
+            });
+        });
+    },
+    randomBegin: function(t) {
+        var a = this;
+        if (a.data.fullList.length) {
+            if (!a.data.begin) {
+                var e = a.data.fullList.length, n = null;
+                a.data.randomSelected = setInterval(function() {
+                    var t = Math.floor(Math.random() * e);
+                    t = t === n ? t === e - 1 ? --t : ++t : t, n = t;
+                    var i = a.data.fullList[t].name, o = Math.ceil(Math.random() * wx.getSystemInfoSync().windowHeight), d = Math.ceil(Math.random() * (wx.getSystemInfoSync().windowWidth - 50)), s = Math.ceil(27 * Math.random() + 16), l = a.data.fadeList;
+                    l.push({
+                        name: i,
+                        style: "top: " + o + "px;left: " + d + "px;font-size:" + s + "rpx;color: rgba(0,0,0,." + Math.random() + ")"
+                    }), a.setData({
+                        fadeList: l,
+                        selected: i
+                    }), l.length > 1e3 && (a.data.fadeList = []);
+                }, 50), "function" == typeof t && t();
+            }
+        } else wx.showToast({
+            title: "再去添加几个吧~",
+            icon: "none"
+        });
+    },
+    randomEnd: function(t) {
+        this.data.randomSelected && (clearInterval(this.data.randomSelected), "function" == typeof t && t());
     }
-  }
-})
+});
