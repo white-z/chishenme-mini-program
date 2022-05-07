@@ -1,12 +1,20 @@
 <view class="container">
     <view class="wrapper">
         <view class="random">{{selected}}</view>
-        <view>
+        <view class="btn-wrap">
             <button bindtap="getSelected" class="btn">{{status}}</button>
         </view>
     </view>
-    <navigator bindtap="randomEnd" class="bar" openType="navigate" url="/pages/setting/setting">自定义</navigator>
+    <view class="footer">
+        <navigator bindtap="randomEnd" class="bar" openType="navigate" url="/pages/edit/edit">
+            <image src="../../static/edit.svg" class="icon"></image>
+        </navigator>
+        <navigator bindtap="randomEnd" class="bar" openType="navigate" url="/pages/setting/setting">
+            <image src="../../static/edit.svg" class="icon"></image>
+        </navigator>
+    </view>
+   
     <view class="fadeList">
-        <view class="temp" style="{{item.style}}" wx:for="{{fadeList}}" wx:key="{{index}}">{{item.name}}</view>
+        <view class="temp" style="{{item.style}}" wx:for="{{fadeList}}" wx:key="index">{{item.name}}</view>
     </view>
 </view>

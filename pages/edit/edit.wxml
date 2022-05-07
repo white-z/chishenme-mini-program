@@ -1,0 +1,12 @@
+<!--pages/edit/edit.wxml-->
+<view class="container">
+  <view class="wrap">
+    <view class="list">
+          <view class="group-list">
+              <view bindtap="select" class="item" wx:for="{{list}}" wx:key="index">
+                <view>{{item}}</view>
+              </view>
+          </view>
+      </view>
+  </view>
+</view>

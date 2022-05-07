@@ -1,11 +1,12 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/setting/setting"
-    ],
-    "window": {
-        "navigationBarTextStyle": "black",
-        "navigationStyle": "custom",
-        "enablePullDownRefresh": false
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/setting/setting",
+    "pages/edit/edit"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "sitemapLocation": "sitemap.json"
 }

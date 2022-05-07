@@ -6,7 +6,12 @@ Page({
         selected: "不知道吃什么?",
         fadeList: []
     },
-    onLoad: function() {},
+    onLoad: function() {
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage']
+        })
+    },
     onShow: function() {
         this.setData({
             fullList: t.globalData.fullList
