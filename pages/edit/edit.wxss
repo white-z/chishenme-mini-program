@@ -1,1 +1,57 @@
 /* pages/edit/edit.wxss */
+.list {
+  width: 100%;
+}
+
+.group-list {
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.group-list .select {
+  display: block;
+  padding: 15rpx 0;
+  text-align: center;
+  width: 33.333%;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.group-list .select .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15rpx;
+  padding: 15rpx 15rpx;
+  border-radius: 40rpx;
+  box-shadow: 2rpx 2rpx 5rpx 2rpx rgba(0,0,0,.1);
+  transition: all .25s;
+}
+.group-list .select.active .item {
+  justify-content: space-around;
+  background-color: rgba(0,0,0,.7);
+  color: #fff;
+  box-shadow: 2rpx 2rpx 5rpx 2rpx rgba(0,0,0,.3);
+}
+.group-list .select .item .text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.group-list .select .item .del-btn {
+  opacity: 0;
+  display: none;
+  width: 42rpx;
+  height: 42rpx;
+  transition: all .25s;
+}
+.group-list .select.active .item .del-btn {
+  display: block;
+  opacity: 1;
+}

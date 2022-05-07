@@ -63,6 +63,7 @@
     margin-top: 30rpx;
     font-size: 1.8em;
     color: #69b452;
+    /* color: #96ca86; */
 }
 .wrapper .btn-wrap {
     width: 100%;

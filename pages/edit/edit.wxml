@@ -3,8 +3,11 @@
   <view class="wrap">
     <view class="list">
           <view class="group-list">
-              <view bindtap="select" class="item" wx:for="{{list}}" wx:key="index">
-                <view>{{item}}</view>
+              <view bindtap="onSelect" data-index="{{index}}" class="select {{selected === index ? 'active' : '' }}" wx:for="{{list}}" wx:key="index">
+                <view class="item">
+                  <text class="text">{{item}}</text>
+                  <image class="del-btn" src="../../static/trash.svg"></image>
+                </view>
               </view>
           </view>
       </view>
