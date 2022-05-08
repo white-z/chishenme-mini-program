@@ -1,81 +1,103 @@
 .wrapper {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .fadeList {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .fadeList .temp {
-    position: inherit;
-    animation: fly 2s;
-    opacity: 0;
+  position: inherit;
+  animation: fly 2s;
+  opacity: 0;
 }
 
 @-webkit-keyframes fly {
-    0% {
-        opacity: 0;
-    }
+  0% {
+      opacity: 0;
+  }
 
-    50% {
-        opacity: 1;
-    }
+  50% {
+      opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+      opacity: 0;
+  }
 }
 
 @keyframes fly {
-    0% {
-        opacity: 0;
-    }
+  0% {
+      opacity: 0;
+  }
 
-    50% {
-        opacity: 1;
-    }
+  50% {
+      opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
-}
-
-.wrapper view {
-    margin-top: 30rpx;
-}
-
-.wrapper view:first-child {
-    margin-top: 0;
+  100% {
+      opacity: 0;
+  }
 }
 
 .random {
-    margin-top: 30rpx;
-    font-size: 1.8em;
-    color: #69b452;
+  display: flex;
+  align-items: flex-end;
+  flex-basis: 50%;
+  max-height: 50%;
+  font-size: 1.8em;
+  padding-bottom: 15rpx;
+  box-sizing: border-box;
+  color: #69b452;
+  /* color: #96ca86; */
+}
+.wrapper .btn-wrap {
+  flex-basis: 50%;
+  min-height: 50%;
+  width: 100%;
+  padding-top: 15rpx;
+  box-sizing: border-box;
+}
+.wrapper .btn-wrap .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  width: 42%;
+  color: #474747;
+  background-color: #fff;
+  border-color: transparent;
+  box-shadow: 0rpx 0rpx 5rpx 2rpx rgba(0,0,0,.1);
+  white-space: nowrap;
 }
 
-.wrapper .btn {
-    width: 280rpx;
-    border-radius: 2px;
-    color: #474747;
-    background-color: #fff;
-    border-color: transparent;
-    box-shadow: 0rpx 0rpx 5rpx 2rpx rgba(0,0,0,.1);
+.footer {
+  position: absolute;
+  bottom: 0;
+  bottom: env(safe-area-inset-bottom);
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.bar {
-    position: absolute;
-    padding: 30rpx;
-    bottom: 0;
-    right: 0;
+.footer .bar {
+  padding: 48rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.footer .bar .icon {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

@@ -22,20 +22,45 @@ Page({
         });
     },
     getSelected: function() {
-        var t = this;
-        t.data.begin ? t.randomEnd(function() {
+      var t = this;
+      if(t.data.begin) {
+        // 正在随机
+        t.randomEnd(function() {
             t.setData({
                 begin: !1,
-                status: "不行，换一个",
+                status: "吃这个吧~",
                 fadeList: []
             });
-        }) : t.randomBegin(function() {
-            t.setData({
-                begin: !0,
-                status: "停止"
-            });
-        });
-    },
+        })
+      } else {
+        // 随机已停止时
+        if(t.data.status === '吃这个吧~') {
+          wx.showModal({
+            title: '就吃这个吧~',
+            cancelText: '重来重来',
+            confirmText: '好的',
+            content: t.data.selected,
+            success (res) {
+              if (res.cancel) {
+                t.randomBegin(function() {
+                    t.setData({
+                        begin: !0,
+                        status: "停止"
+                    });
+                });
+              }
+            }
+          })
+        } else {
+          t.randomBegin(function() {
+              t.setData({
+                  begin: !0,
+                  status: "停止"
+              });
+          });
+        }
+      }
+  },
     randomBegin: function(t) {
         var a = this;
         if (a.data.fullList.length) {
