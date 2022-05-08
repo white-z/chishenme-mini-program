@@ -50,23 +50,23 @@
     }
 }
 
-.wrapper view {
-    display: none;
-    margin-top: 30rpx;
-}
-
-.wrapper view:first-child {
-    margin-top: 0;
-}
-
 .random {
-    margin-top: 30rpx;
+    display: flex;
+    align-items: flex-end;
+    flex-basis: 50%;
+    max-height: 50%;
     font-size: 1.8em;
+    padding-bottom: 15rpx;
+    box-sizing: border-box;
     color: #69b452;
     /* color: #96ca86; */
 }
 .wrapper .btn-wrap {
+    flex-basis: 50%;
+    min-height: 50%;
     width: 100%;
+    padding-top: 15rpx;
+    box-sizing: border-box;
 }
 .wrapper .btn-wrap .btn {
     display: flex;
@@ -92,7 +92,7 @@
 }
 
 .footer .bar {
-    padding: 30px;
+    padding: 48rpx;
     width: 60rpx;
     height: 60rpx;
 }

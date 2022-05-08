@@ -10,14 +10,20 @@ App({
             })
             wx.setStorageSync(STORAGE_KEY, text)
             this.globalData.text = wx.getStorageSync(STORAGE_KEY)
+            wx.removeStorageSync('fullList')
         } else {
+          
             const text = wx.getStorageSync(STORAGE_KEY)
             if(!text.length) {
-                const defauleText = '馄饨 拉面 烩面 热干面 刀削面 油泼面 炸酱面 炒面 重庆小面 米线 酸辣粉 土豆粉 螺狮粉 凉皮儿 麻辣烫 肉夹馍 羊肉汤 炒饭 盖浇饭 卤肉饭 烤肉饭 黄焖鸡米饭 驴肉火烧 川菜 麻辣香锅 火锅 酸菜鱼 烤串 披萨 烤鸭 汉堡 炸鸡 寿司 蟹黄包 煎饼果子 生煎 炒年糕'
+                const defauleText = '真功夫 红荔村 永和大王 肯德基 麦当劳 汉堡王 必胜客 喜家德 遇见小面 大弗兰 兰州拉面 沙县小吃 自助快餐 味千拉面 酸菜鱼 减脂餐 辣可可 农耕记 猪脚饭 椰子鸡 万利记 霸碗 老乡鸡'
                 wx.setStorageSync(STORAGE_KEY, defauleText)
+                this.globalData.text = wx.getStorageSync(STORAGE_KEY)
+            } else {
+              this.globalData.text = text
             }
-            this.globalData.text = text
+            
         }
+        
     },
     globalData: {
         storageKey: 'text',

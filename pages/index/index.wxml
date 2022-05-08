@@ -9,9 +9,6 @@
         <navigator bindtap="randomEnd" class="bar" openType="navigate" url="/pages/edit/edit">
             <image src="../../static/edit.svg" class="icon"></image>
         </navigator>
-        <navigator bindtap="randomEnd" class="bar" openType="navigate" url="/pages/setting/setting">
-            <image src="../../static/edit.svg" class="icon"></image>
-        </navigator>
     </view>
    
     <view class="fadeList">

@@ -1,15 +1,22 @@
 <!--pages/edit/edit.wxml-->
 <view class="container">
   <view class="wrap">
-    <view class="list">
-          <view class="group-list">
-              <view bindtap="onSelect" data-index="{{index}}" class="select {{selected === index ? 'active' : '' }}" wx:for="{{list}}" wx:key="index">
-                <view class="item">
-                  <text class="text">{{item}}</text>
-                  <image class="del-btn" src="../../static/trash.svg"></image>
-                </view>
-              </view>
-          </view>
+    <view class="list" bindtap="onCancel">
+      <view class="group-text">
+        <view class="text-area">
+          <textarea bindinput="onInput" placeholder="以空格分隔每项" name="text" cols="30" rows="10" maxlength="-1" value="{{text}}" ></textarea>
+        </view>
       </view>
+      <view class="group-list">
+        <view catchtap="onSelect" data-index="{{index}}" class="select {{selected === index ? 'active' : '' }}" wx:for="{{list}}" wx:key="index">
+          <view class="item">
+            <text class="text">{{item}}</text>
+            <view class="del-wrap" catchtap="onDelete" data-index="{{index}}">
+              <image class="del-btn" src="../../static/trash.svg"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

@@ -1,12 +1,39 @@
 /* pages/edit/edit.wxss */
+.wrap {
+  height: 100vh;
+}
 .list {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
+}
+
+.group-text {
+  flex-basis: 33%;
+  max-height: 33%;
+  padding: 35rpx 35rpx 0;
+  box-sizing: border-box;
+}
+.text-area {
+  padding: 30rpx;
+  border: 1px solid #ccc;
+  border-radius: 8rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+.text-area textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .group-list {
   padding: 20rpx;
   display: flex;
   flex-wrap: wrap;
+  max-height: 64%;
+  overflow: auto;
 }
 
 .group-list .select {
@@ -27,7 +54,6 @@
   align-items: center;
   justify-content: center;
   margin: 0 15rpx;
-  padding: 15rpx 15rpx;
   border-radius: 40rpx;
   box-shadow: 2rpx 2rpx 5rpx 2rpx rgba(0,0,0,.1);
   transition: all .25s;
@@ -43,15 +69,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 15rpx 15rpx;
 }
-.group-list .select .item .del-btn {
+.group-list .select .item .del-wrap {
   opacity: 0;
   display: none;
   width: 42rpx;
   height: 42rpx;
+  padding: 15rpx 15rpx;
   transition: all .25s;
 }
-.group-list .select.active .item .del-btn {
+.group-list .select.active .item .del-wrap {
   display: block;
   opacity: 1;
+}
+.del-wrap .del-btn {
+  display: block;
+  height: 100%;
+  width: 100%;
 }

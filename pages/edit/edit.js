@@ -1,5 +1,6 @@
 // pages/edit/edit.js
 const app = getApp()
+import utils from '../../utils/util'
 Page({
 
   /**
@@ -15,14 +16,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const text = app.globalData.text || ''
-    const list = text.replace(/\s{2,}/g, ' ').split(' ').filter(el => el)
+    const text = utils.getText(app.globalData.text)
+    const list = utils.getList(text)
     this.setData({
       text,
       list
     })
-    console.log(this.data.text)
-    console.log(this.data.list)
   },
 
   /**
@@ -41,8 +40,32 @@ Page({
   onSelect(e) {
     const index = e.currentTarget.dataset.index
     this.setData({
-      selected: index
+      selected: this.data.selected === index ? null : index
     })
+  },
+  onCancel() {
+    this.setData({
+      selected: null
+    })
+  },
+  onDelete(e) {
+    const index = e.currentTarget.dataset.index
+    const newText = utils.getText(this.data.text.replace(this.data.list[index], ''))
+    this.setData({
+      text: newText,
+      list: utils.getList(newText),
+      selected: null
+    })
+    utils.storeText(newText)
+  },
+  onInput(e) {
+    const text = utils.getText(e.detail.value)
+    const list = utils.getList(text)
+    this.setData({
+      text,
+      list
+    })
+    utils.storeText(text)
   },
   /**
    * 生命周期函数--监听页面隐藏
