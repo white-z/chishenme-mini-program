@@ -4,8 +4,7 @@
         "pages/setting/setting"
     ],
     "window": {
-        "navigationBarTextStyle": "black",
-        "navigationStyle": "custom",
-        "enablePullDownRefresh": false
+      "navigationBarTextStyle": "black",
+      "navigationBarBackgroundColor": "#ffffff"
     }
 }

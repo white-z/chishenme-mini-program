@@ -34,34 +34,22 @@ Page({
             l++;
             break;
         }
-        l && wx.showModal({
-            title: "提示",
-            content: "您确定要删除所选项吗？",
-            success: function(l) {
-                if (l.confirm) {
-                    for (var s = e.length - 1; s >= 0; s--) e[s].isSelect && e.splice(s, 1);
-                    a.saveList(e, t), t.setData({
-                        hasSelect: !1,
-                        isSelectAll: !1
-                    }), t.data.fullList.length || (t.setData({
-                        totalDeleted: !0
-                    }), t.addWrapToggle());
-                }
-            }
-        });
+        if(l) {
+          for (var s = e.length - 1; s >= 0; s--) e[s].isSelect && e.splice(s, 1);
+          a.saveList(e, t), t.setData({
+              hasSelect: !1,
+              isSelectAll: !1
+          }), t.data.fullList.length || (t.setData({
+              totalDeleted: !0
+          }), t.addWrapToggle())
+        }
     },
     deleteFullList: function() {
         var t = this;
-        this.data.fullList.length && wx.showModal({
-            title: "提示",
-            content: "您确定要全部删除吗？",
-            success: function(e) {
-                e.confirm && (a.saveList([], t), t.setData({
-                    totalDeleted: !0,
-                    hasSelect: !1
-                }), t.addWrapToggle());
-            }
-        });
+        (a.saveList([], t), t.setData({
+          totalDeleted: !0,
+          hasSelect: !1
+      }), t.addWrapToggle());
     },
     selectAll: function() {
         var t = this.data.fullList;
@@ -95,7 +83,7 @@ Page({
         });
     },
     confirmAdd: function() {
-        this.data.addName.length && (this.data.fullList.push({
+        this.data.addName.length && (this.data.fullList.unshift({
             name: this.data.addName
         }), a.saveList(this.data.fullList, this), this.setData({
             addName: "",

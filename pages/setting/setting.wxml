@@ -11,13 +11,12 @@
         </view>
         <view class="add-wrap {{addWrapShow?'show':''}}">
             <view class="add-group">
-                <input bindinput="addName" placeholder="输入您要添加的名称" value="{{addName}}"></input>
-                <button bindtap="confirmAdd" class="btn-add">确认</button>
+                <input bindinput="addName" bindconfirm="confirmAdd" 	confirm-hold placeholder="输入您要添加的名称" value="{{addName}}"></input>
             </view>
         </view>
         <view class="list">
             <view class="group-list">
-                <view bindtap="select" class="item {{item.isSelect?'active':''}}" data-key="{{index}}" wx:for="{{fullList}}" wx:key="{{index}}">
+                <view bindtap="select" class="item {{item.isSelect?'active':''}}" data-key="{{index}}" wx:for="{{fullList}}" wx:key="index">
                     <view>{{item.name}}</view>
                 </view>
             </view>
